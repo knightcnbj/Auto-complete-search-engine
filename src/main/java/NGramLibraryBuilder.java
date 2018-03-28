@@ -16,7 +16,7 @@ public class NGramLibraryBuilder {
 		public void setup(Context context) {
 			//how to get n-gram from command line?
             Configuration configuration = context.getConfiguration();
-            noGram = configuration.getInt("noGran", 5);
+            noGram = configuration.getInt("noGram", 5);
 		}
 
 		// map method

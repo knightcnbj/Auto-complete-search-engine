@@ -14,10 +14,12 @@ public class LanguageModel {
 		int threashold;
 
 		@Override
-		public void setup(Context context) {
+		public void setup(Context context) throws IOException, InterruptedException {
 			// how to get the threashold parameter from the configuration?
 			Configuration configuration = context.getConfiguration();
 			threashold = configuration.getInt("threashold", 2);
+			if (threashold == 2)
+			    context.write(new Text("default threashold triggered"), new Text("you did something wrong"));
 		}
 
 		
@@ -68,6 +70,8 @@ public class LanguageModel {
 		public void setup(Context context) {
 			Configuration conf = context.getConfiguration();
 			n = conf.getInt("n", 5);
+
+
 		}
 
 		@Override

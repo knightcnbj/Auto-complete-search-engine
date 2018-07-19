@@ -13,10 +13,13 @@ public class NGramLibraryBuilder {
 
 		int noGram;
 		@Override
-		public void setup(Context context) {
+		public void setup(Context context) throws IOException, InterruptedException {
 			//how to get n-gram from command line?
             Configuration configuration = context.getConfiguration();
             noGram = configuration.getInt("noGram", 5);
+
+            if (noGram == 5)
+                context.write(new Text("default triggered"), new IntWritable(1));
 		}
 
 		// map method
